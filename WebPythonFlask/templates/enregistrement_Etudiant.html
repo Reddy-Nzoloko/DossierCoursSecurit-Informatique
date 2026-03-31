@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Enregistrement Étudiant</title>
+</head>
+<body>
+    <!-- Formulaire d'enregistrement des étudiants avec champs nom, postnom et email -->
+    <div class="flex items-center justify-center h-screen">
+        <form action="/enregistrement_Etudiant" method="POST" class="bg-white p-6 rounded shadow-md">
+            <h2 class="text-xl font-bold mb-4">Enregistrement Étudiant</h2>
+            <div class="mb-4">
+                <label for="nom" class="block text-gray-700 text-sm font-bold mb-2">Nom:</label>
+                <input type="text" id="nom" name="nom" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="postnom" class="block text-gray-700 text-sm font-bold mb-2">Postnom:</label>
+                <input type="text" id="postnom" name="postnom" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Enregistrer
+            </button>
+            <!-- Creation d'un bouton qui va nous permettre d'afficher les données des étudiants     -->
+            <a href="/afficher_Etudiant" class="ml-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Afficher les étudiants
+        </form>
+    </div>
+</body>
+</html>
