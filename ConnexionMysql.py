@@ -44,4 +44,4 @@ def enregistrer_utilisateur(nom, postNom, email):
     connexion.close()
 
 # Maintenant je vais tester la fonction enregistrer_utilisateur pour voir si elle fonctionne correctement
-enregistrer_utilisateur("Reddy", "Mokoko", "reddy.mokoko@example.com")
+enregistrer_utilisateur("Reddy", "Nzoloko", "reddynzoloko@gmail.com")
