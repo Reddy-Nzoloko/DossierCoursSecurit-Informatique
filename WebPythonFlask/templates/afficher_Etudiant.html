@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Afficher Étudiant</title>
+</head>
+<body>
+    <!-- Tableau pour afficher les informations des étudiants qui viennent de la base de données avec utilisations de la route -->
+    <div class="flex items-center justify-center h-screen">
+        <table class="table-auto border-collapse border border-gray-400">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Nom</th>
+                    <th class="border border-gray-300 px-4 py-2">Postnom</th>
+                    <th class="border border-gray-300 px-4 py-2">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {% for utilisateur in utilisateurs %}
+                    <td class="border border-gray-300 px-4 py-2">{{ utilisateur[0] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ utilisateur[1] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ utilisateur[2] }}</td>
+                    <td><a href="/modifier/{{ utilisateur['id'] }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Modifier</a></td>
+                    <td><a href="/supprimer/{{ utilisateur['id'] }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Supprimer</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- ajoutons un boutons qui va nous ramener sur la page d'enregistrement  -->
+        <a href="/enregistrement_Etudiant" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Ajouter un étudiant
+        </a>
+    </div>
+    
+</body>
+</html>
