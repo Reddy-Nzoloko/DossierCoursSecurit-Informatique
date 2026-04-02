@@ -1,6 +1,7 @@
 # Importation de la classe Flask et de la fonction render_template
 from flask import Flask, render_template, request, redirect, url_for
 from ConnexionMysql import enregistrer_utilisateur
+from Dechiffrement import afficher_utilisateurs_html
 # creation d'une instance de Flask
 application = Flask(__name__)
 # definition d'une route pour la page d'accueil
@@ -21,7 +22,29 @@ def enregistrement_etudiant():
         return redirect(url_for('home'))
     else:
         return render_template('enregistrement_Etudiant.html')
+    
+# Affichage des utilisateurs de la base de données dans un formulaire html pour que je puisse les afficher dans mon application web flask
+@application.route('/afficher_Etudiant')
+def afficher_utilisateurs():
+    utilisateurs = afficher_utilisateurs_html()
+    return render_template('afficher_Etudiant.html', utilisateurs=utilisateurs)
 
+# Affichage unique d'un utilisateur et modification de ses informations
+@application.route('/liste_etudiants')
+def etudiants():
+    resultat=afficher()
+    return render_template('etudiants.html',etudiants=resultat)
+
+@application.route('/modifier/<id>',methods=['GET','POST'])
+def modifier_etudiant(email):
+    if request.method == 'POST':
+        nom=request.form.get('nom')
+        postnom=request.form.get('postnom')
+        modifier(email,nom,postnom)
+        return redirect(url_for('etudiants'))
+    else:
+        etudiant=afficher_etudiant_unique(email)
+        return render_template('modifier.html',etudiant=etudiant)
     # return render_template('enregistrement_Etudiant.html')
 # lancement de notre application Flask
 if __name__ == '__main__':
