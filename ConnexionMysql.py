@@ -4,7 +4,7 @@ import mysql.connector
 from cryptography.fernet import Fernet
 import os
 
-# on se connecte à notre base de donnée mysql qui est nommé SecuriteInformatique par une fonction
+# on se connectes à notre base de donnée mysql qui est nommé SecuriteInformatique par  une fonction
 def connecter():
     connexion = mysql.connector.connect(
         host="localhost",
