@@ -12,6 +12,8 @@ def connecter():
         password="",
         database="SecuriteInformatique"
     )
+    # On doit continuer 
+    
     # on creer le cursor pour executer les requetes sql
     curseur = connexion.cursor()
     return curseur, connexion
