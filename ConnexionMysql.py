@@ -13,7 +13,7 @@ def connecter():
         database="SecuriteInformatique"
     )
     # On doit continuer 
-    
+    # on doit aussi ajouter une condition pour vérifier si la connexion a réussi ou pas
     # on creer le cursor pour executer les requetes sql
     curseur = connexion.cursor()
     return curseur, connexion
