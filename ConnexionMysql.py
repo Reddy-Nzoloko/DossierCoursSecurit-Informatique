@@ -33,12 +33,12 @@ def chiffrer_message(message_claire):
 
 def enregistrer_utilisateur(nom, postNom, email):
     requete = "INSERT INTO utilisateur (nom, postNom, email) VALUES (%s, %s, %s)"
-    # chiffrement du message claire
+    # chiffrement du message claire (nom, postNom, email) avant de l'insérer dans la base de donnée
     nom = chiffrer_message(nom)
     postNom = chiffrer_message(postNom)
     email = chiffrer_message(email)   
     valeurs=(nom, postNom, email)
-    # curseur pour executer la requete sql   
+    # curseur pour executer la requete sql 
     curseur, connexion = connecter()
     curseur.execute(requete, valeurs)
     print("Utilisateur enregistré avec succès !")
